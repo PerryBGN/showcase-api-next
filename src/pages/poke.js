@@ -1,17 +1,8 @@
-
 "use client";
 import { useState, useEffect } from "react";
 
-interface Pokemon {
-  name: string;
-  height: number;
-  sprites: {
-    front_default: string;
-  };
-}
-
 const PokeComponent = () => {
-  const [pokemon, setPokemon] = useState<Pokemon | null>(null);
+  const [pokemon, setPokemon] = useState(null);
 
   useEffect(() => {
     fetch("https://pokeapi.co/api/v2/pokemon/ditto")
@@ -30,7 +21,7 @@ const PokeComponent = () => {
           <img src={pokemon.sprites.front_default} alt={pokemon.name} />
         </div>
       ) : (
-        <p>Cargando...</p>
+        <p>Cargando ...</p>
       )}
     </div>
   );
